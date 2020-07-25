@@ -1,4 +1,4 @@
-Plugin to get details of Instagram user details
+Plugin to get details of Instagram user
 
 Created by [Viral Vaghela](https://www.linkedin.com/in/viralv/)
 
