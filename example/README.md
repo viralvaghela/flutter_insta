@@ -2,14 +2,7 @@ Plugin to get details of instagram user.
 
 Created by [Viral Vaghela](https://www.linkedin.com/in/viralv/)
 
-## Getting Started
-To get started, simply add dartpedia to  `pubspec.yaml`:
-```yaml
-dependencies:
-  flutter_insta: 0.0.2
-``` 
-
-## Using
+## How to Use 
 To use flutter_insta, first start by importing the package.
 ```dart
 import 'package:flutter_insta/flutter_insta.dart';
