@@ -19,8 +19,4 @@ print("Folowing : ${flutterInsta.following}");
 print("Bio : ${flutterInsta.bio}");
 print("Website : ${flutterInsta.website}");
 print("Profile Image : ${flutterInsta.imgurl}");
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> a904ff5854d0cc75256739c86a82f101267bea08
