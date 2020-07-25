@@ -1,8 +1,7 @@
 name: flutter_insta
 description: A flutter plugin to get instagram user's details
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/viralvaghela/flutter_insta
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: any
 
 dev_dependencies:
   flutter_test:

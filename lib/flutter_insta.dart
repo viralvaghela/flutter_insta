@@ -1,13 +1,43 @@
-import 'dart:async';
+import 'dart:convert';
 
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class FlutterInsta {
-  static const MethodChannel _channel =
-      const MethodChannel('flutter_insta');
+  String url = "https://www.instagram.com/";
+  String _followers, _following, _website, _bio, _imgurl, _username;
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+  String get followers => _followers;
+
+  FlutterInsta(String username) {
+    this._username = username;
+
+    getJsonData().then((data) {
+      var graphql = data['graphql'];
+      var user = graphql['user'];
+      var biography = user['biography'];
+      _bio = biography;
+      var myfollowers = user['edge_followed_by'];
+      var myfollowing = user['edge_follow'];
+      _followers = myfollowers['count'].toString();
+      _following = myfollowing['count'].toString();
+      _website = user['external_url'];
+      _imgurl = user['profile_pic_url_hd'];
+    });
   }
+
+  Future<dynamic> getJsonData() async {
+    var res = await http.get(Uri.encodeFull(url + _username + "/?__a=1"));
+    var data = json.decode(res.body);
+    if (data != null) return data;
+  }
+
+  get following => _following;
+
+  get website => _website;
+
+  get bio => _bio;
+
+  get imgurl => _imgurl;
+
+  get username => _username;
 }
