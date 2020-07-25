@@ -6,7 +6,7 @@ Created by [Viral Vaghela](https://www.linkedin.com/in/viralv/)
 To get started, simply add dartpedia to  `pubspec.yaml`:
 ```yaml
 dependencies:
-  flutter_insta: 0.0.1 
+  flutter_insta: 0.0.2
 ``` 
 
 ## Using
