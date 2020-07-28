@@ -10,25 +10,22 @@ class FlutterInsta {
 
   FlutterInsta(String username) {
     this._username = username;
-
-    getJsonData().then((data) {
-      var graphql = data['graphql'];
-      var user = graphql['user'];
-      var biography = user['biography'];
-      _bio = biography;
-      var myfollowers = user['edge_followed_by'];
-      var myfollowing = user['edge_follow'];
-      _followers = myfollowers['count'].toString();
-      _following = myfollowing['count'].toString();
-      _website = user['external_url'];
-      _imgurl = user['profile_pic_url_hd'];
-    });
   }
 
-  Future<dynamic> getJsonData() async {
+
+  Future<void> getData() async {
     var res = await http.get(Uri.encodeFull(url + _username + "/?__a=1"));
     var data = json.decode(res.body);
-    if (data != null) return data;
+    var graphql = data['graphql'];
+    var user = graphql['user'];
+    var biography = user['biography'];
+    _bio = biography;
+    var myfollowers = user['edge_followed_by'];
+    var myfollowing = user['edge_follow'];
+    _followers = myfollowers['count'].toString();
+    _following = myfollowing['count'].toString();
+    _website = user['external_url'];
+    _imgurl = user['profile_pic_url_hd'];
   }
 
   get following => _following;
