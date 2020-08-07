@@ -1,3 +1,7 @@
+## [0.0.9] 
+
+* readme update
+ 
 ## [0.0.8] 
 
 * Screenshot added
