@@ -62,13 +62,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_downloader:
+    dependency: "direct main"
+    description:
+      name: flutter_downloader
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.4"
   flutter_insta:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -179,4 +186,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.9.0-14.0.dev <3.0.0"
-  flutter: ">=1.10.0"
+  flutter: ">=1.12.13 <2.0.0"

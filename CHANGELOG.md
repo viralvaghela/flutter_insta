@@ -1,6 +1,11 @@
+## [0.1.0] 
+
+* Reels download added
+* Example UI updated
+ 
 ## [0.0.9] 
 
-* readme update
+* readme updated
  
 ## [0.0.8] 
 

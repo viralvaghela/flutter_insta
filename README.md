@@ -1,16 +1,20 @@
-Simple way to get Instagram user details like prifile picture url,number of followers,following,Bio,website. 
+Flutter package to get Instagram user details and download reels videos.
 
 ## How to Use 
+
 To use flutter_insta, first start by importing the package.
 ```dart
 import 'package:flutter_insta/flutter_insta.dart';
 ```
-Next, create a new FlutterInsta object and pass username inside constructor 
+
+### Get profile details
+ 
 ```dart
-FlutterInsta flutterInsta = new FlutterInsta("coding_boy_");
-await flutterInsta.getData();
+FlutterInsta flutterInsta = new FlutterInsta();
+await flutterInsta.getData("coding_boy_");
 ```
-Get Details
+
+Print Details
 ```dart
 print("Username : ${flutterInsta.username}");
 print("Followers : ${flutterInsta.followers}");
@@ -20,6 +24,13 @@ print("Website : ${flutterInsta.website}");
 print("Profile Image : ${flutterInsta.imgurl}");
 ```
 
-![](images/img1.jpg)
+### Download Reels video
+```dart 
+String downloadLink1 =  await flutterInsta.downloadReels("https://www.instagram.com/reel/CDlGkdZgB2y/"); //URL
+```
 
+### Example
+[Click here for more Example](https://pub.dev/packages/flutter_insta/example)
+
+![](./images/main.png)
 Created by [Viral Vaghela](https://www.linkedin.com/in/viralv/)

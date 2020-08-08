@@ -4,17 +4,21 @@ import 'package:http/http.dart' as http;
 
 class FlutterInsta {
   String url = "https://www.instagram.com/";
-  String _followers, _following, _website, _bio, _imgurl, _username;
+  String _followers, _following, _website, _bio, _imgurl;
 
-  String get followers => _followers;
-
-  FlutterInsta(String username) {
-    this._username = username;
+  //Download reels video
+  Future<String> downloadReels(String link) async {
+    var downloadURL = await http.get(link + "/?__a=1");
+    var data = json.decode(downloadURL.body);
+    var graphql = data['graphql'];
+    var shortcode_media = graphql['shortcode_media'];
+    var video_url = shortcode_media['video_url'];
+    return video_url; // return download link
   }
 
-
-  Future<void> getData() async {
-    var res = await http.get(Uri.encodeFull(url + _username + "/?__a=1"));
+  //get profile details
+  Future<void> getProfileData(String username) async {
+    var res = await http.get(Uri.encodeFull(url + username + "/?__a=1"));
     var data = json.decode(res.body);
     var graphql = data['graphql'];
     var user = graphql['user'];
@@ -28,6 +32,8 @@ class FlutterInsta {
     _imgurl = user['profile_pic_url_hd'];
   }
 
+  String get followers => _followers;
+
   get following => _following;
 
   get website => _website;
@@ -35,6 +41,4 @@ class FlutterInsta {
   get bio => _bio;
 
   get imgurl => _imgurl;
-
-  get username => _username;
 }
