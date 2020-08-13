@@ -1,3 +1,7 @@
+## [0.1.2] 
+* Scores increased by 10 points and small space bug fixed
+* Reformated,small bug fixed
+
 ## [0.1.1] 
 
 * fixed FormatException: Unexpected character
