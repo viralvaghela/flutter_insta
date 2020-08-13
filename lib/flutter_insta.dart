@@ -8,7 +8,10 @@ class FlutterInsta {
 
   //Download reels video
   Future<String> downloadReels(String link) async {
-    var downloadURL = await http.get(link + "/?__a=1");
+    var linkEdit = link.split("/");
+    var downloadURL = await http.get(
+        '${linkEdit[0]}//${linkEdit[2]}/${linkEdit[3]}/${linkEdit[4]}' +
+            "/?__a=1");
     var data = json.decode(downloadURL.body);
     var graphql = data['graphql'];
     var shortcode_media = graphql['shortcode_media'];
