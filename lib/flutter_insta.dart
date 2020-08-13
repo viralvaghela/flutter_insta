@@ -8,7 +8,7 @@ class FlutterInsta {
 
   //Download reels video
   Future<String> downloadReels(String link) async {
-    var linkEdit = link.split("/");
+    var linkEdit = link.replaceAll(" ", "").split("/");
     var downloadURL = await http.get(
         '${linkEdit[0]}//${linkEdit[2]}/${linkEdit[3]}/${linkEdit[4]}' +
             "/?__a=1");
