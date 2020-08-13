@@ -1,6 +1,6 @@
 name: flutter_insta
 description: Flutter package to get instagram user's details such as prifile picture url,number of followers,following,Bio,website and download reels video.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/viralvaghela/flutter_insta
 
 environment:

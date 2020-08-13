@@ -14,9 +14,9 @@ class FlutterInsta {
             "/?__a=1");
     var data = json.decode(downloadURL.body);
     var graphql = data['graphql'];
-    var shortcode_media = graphql['shortcode_media'];
-    var video_url = shortcode_media['video_url'];
-    return video_url; // return download link
+    var shortcodeMedia = graphql['shortcode_media'];
+    var videoUrl = shortcodeMedia['video_url'];
+    return videoUrl; // return download link
   }
 
   //get profile details
