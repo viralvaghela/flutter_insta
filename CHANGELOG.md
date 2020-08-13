@@ -1,3 +1,8 @@
+## [0.1.1] 
+
+* fixed FormatException: Unexpected character
+* Reformated,small bug fixed
+
 ## [0.1.0] 
 
 * Reels download added
