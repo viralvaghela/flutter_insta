@@ -1,3 +1,7 @@
+## [0.1.3] 
+* Typo fixed
+* method name changed in readme
+
 ## [0.1.2] 
 * Scores increased by 10 points and small space bug fixed
 * Reformated,small bug fixed

@@ -11,7 +11,7 @@ import 'package:flutter_insta/flutter_insta.dart';
  
 ```dart
 FlutterInsta flutterInsta = new FlutterInsta();
-await flutterInsta.getData("coding_boy_");
+await flutterInsta.getProfileData("coding_boy_); //instagram username
 ```
 
 Print Details
@@ -26,7 +26,7 @@ print("Profile Image : ${flutterInsta.imgurl}");
 
 ### Download Reels video
 ```dart 
-String downloadLink1 =  await flutterInsta.downloadReels("https://www.instagram.com/reel/CDlGkdZgB2y/"); //URL
+String downloadLink =  await flutterInsta.downloadReels("https://www.instagram.com/reel/CDlGkdZgB2y/"); //URL
 ```
 
 ### Example

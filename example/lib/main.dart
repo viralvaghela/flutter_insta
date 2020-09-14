@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage>
   Future printDetails(String username) async {
     await flutterInsta.getProfileData(username);
     setState(() {
-      this.username = usernameController.text; //username
+      this.username = flutterInsta.username; //username
       this.followers = flutterInsta.followers; //number of followers
       this.following = flutterInsta.following; // number of following
       this.website = flutterInsta.website; // bio link
