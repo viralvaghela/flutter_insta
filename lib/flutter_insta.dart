@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 class FlutterInsta {
   String url = "https://www.instagram.com/";
   String _followers, _following, _website, _bio, _imgurl,_username;
+  // List of images from user feed
+  List<String> _feedImagesUrl;
 
   //Download reels video
   Future<String> downloadReels(String link) async {
@@ -33,6 +35,7 @@ class FlutterInsta {
     _following = myfollowing['count'].toString();
     _website = user['external_url'];
     _imgurl = user['profile_pic_url_hd'];
+    _feedImagesUrl = user['edge_owner_to_timeline_media']['edges'].map<String>((image) => image['node']['display_url'] as String).toList();
     this._username=username;
   }
 
@@ -47,4 +50,6 @@ class FlutterInsta {
   get bio => _bio;
 
   get imgurl => _imgurl;
+
+  List<String> get feedImagesUrl => _feedImagesUrl;
 }
