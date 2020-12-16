@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_downloader: ^1.4.4
+  flutter_downloader: ^1.5.2
 
   flutter_insta:
     # When depending on this package from a real application you should use:

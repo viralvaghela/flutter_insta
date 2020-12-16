@@ -1,3 +1,6 @@
+## [0.1.4] 
+* getFeedImages added
+
 ## [0.1.3] 
 * Typo fixed
 * method name changed in readme

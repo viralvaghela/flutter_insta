@@ -22,6 +22,7 @@ print("Folowing : ${flutterInsta.following}");
 print("Bio : ${flutterInsta.bio}");
 print("Website : ${flutterInsta.website}");
 print("Profile Image : ${flutterInsta.imgurl}");
+print("Feed images":${flutterInsta.feedImagesUrl}");
 ```
 
 ### Download Reels video
