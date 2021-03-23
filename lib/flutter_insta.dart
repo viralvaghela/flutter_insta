@@ -12,8 +12,8 @@ class FlutterInsta {
   Future<String> downloadReels(String link) async {
     var linkEdit = link.replaceAll(" ", "").split("/");
     var downloadURL = await http.get(
-        '${linkEdit[0]}//${linkEdit[2]}/${linkEdit[3]}/${linkEdit[4]}' +
-            "/?__a=1");
+        Uri.parse('${linkEdit[0]}//${linkEdit[2]}/${linkEdit[3]}/${linkEdit[4]}' +
+            "/?__a=1"));
     var data = json.decode(downloadURL.body);
     var graphql = data['graphql'];
     var shortcodeMedia = graphql['shortcode_media'];
@@ -23,7 +23,7 @@ class FlutterInsta {
 
   //get profile details
   Future<void> getProfileData(String username) async {
-    var res = await http.get(Uri.encodeFull(url + username + "/?__a=1"));
+    var res = await http.get(Uri.parse(url + username + "/?__a=1"));
     var data = json.decode(res.body);
     var graphql = data['graphql'];
     var user = graphql['user'];
