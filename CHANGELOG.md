@@ -1,3 +1,6 @@
+## [0.1.5] 
+* small bug fixed
+
 ## [0.1.4] 
 * getFeedImages added
 
