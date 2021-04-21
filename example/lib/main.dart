@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage>
             decoration: InputDecoration(contentPadding: EdgeInsets.all(10)),
             controller: usernameController,
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Print Details"),
             onPressed: () async {
               setState(() {
@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage>
         TextField(
           controller: reelController,
         ),
-        RaisedButton(
+        ElevatedButton(
           onPressed: () {
             setState(() {
               downloading = true; //set to true to show Progress indicator
