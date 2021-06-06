@@ -20,15 +20,13 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
-  FlutterInsta flutterInsta =
-      FlutterInsta(); // create instance of FlutterInsta class
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  FlutterInsta flutterInsta = FlutterInsta(); // create instance of FlutterInsta class
   TextEditingController usernameController = TextEditingController();
   TextEditingController reelController = TextEditingController();
-  TabController tabController;
+  TabController? tabController;
 
-  String username, followers = " ", following, bio, website, profileimage;
+  String? username, followers = " ", following, bio, website, profileimage;
   bool pressed = false;
   bool downloading = false;
 
@@ -36,20 +34,18 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     tabController = TabController(vsync: this, initialIndex: 1, length: 2);
-    InitializeDownloader();
+    initializeDownloader();
     downloadReels();
   }
 
-  void InitializeDownloader() async {
+  void initializeDownloader() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await FlutterDownloader.initialize(
-        debug: true // optional: set false to disable printing logs to console
+    await FlutterDownloader.initialize(debug: true // optional: set false to disable printing logs to console
         );
   }
 
   void downloadReels() async {
-    var s = await flutterInsta
-        .downloadReels("https://www.instagram.com/p/CDlGkdZgB2y");
+    var s = await flutterInsta.downloadReels("https://www.instagram.com/p/CDlGkdZgB2y");
     print(s);
   }
 
@@ -74,7 +70,7 @@ class _HomePageState extends State<HomePage>
         controller: tabController,
         children: [
           homePage(), //  // home screen for Getting profile details
-          ReelPage() // reel download Screen
+          reelPage() // reel download Screen
         ],
       ),
     );
@@ -149,8 +145,7 @@ class _HomePageState extends State<HomePage>
                                 padding: EdgeInsets.only(top: 10),
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     "$followers\nFollowers",
@@ -196,7 +191,7 @@ class _HomePageState extends State<HomePage>
   }
 
 //Reel Downloader page
-  Widget ReelPage() {
+  Widget reelPage() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -214,8 +209,7 @@ class _HomePageState extends State<HomePage>
         ),
         downloading
             ? Center(
-                child:
-                    CircularProgressIndicator(), //if downloading is true show Progress Indicator
+                child: CircularProgressIndicator(), //if downloading is true show Progress Indicator
               )
             : Container()
       ],
@@ -225,13 +219,13 @@ class _HomePageState extends State<HomePage>
 //Download reel video on button clickl
   void download() async {
     var myvideourl = await flutterInsta.downloadReels(reelController.text);
-    final taskId = await FlutterDownloader.enqueue(
+
+    await FlutterDownloader.enqueue(
       url: '$myvideourl',
       savedDir: '/sdcard/Download',
       showNotification: true,
       // show download progress in status bar (for Android)
-      openFileFromNotification:
-          true, // click on notification to open downloaded file (for Android)
+      openFileFromNotification: true, // click on notification to open downloaded file (for Android)
     ).whenComplete(() {
       setState(() {
         downloading = false; // set to false to stop Progress indicator
