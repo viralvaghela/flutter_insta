@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http; // import http package for API calls
 
 class FlutterInsta {
   String url = "https://www.instagram.com/";
@@ -23,8 +23,9 @@ class FlutterInsta {
 
   //get profile details
   Future<void> getProfileData(String username) async {
-    var res = await http
-        .get(Uri.parse(Uri.encodeFull(url + username + "/?__a=1&__d=dis")));
+    var res = await http.get(Uri.parse(Uri.encodeFull(url +
+        username +
+        "/?__a=1&__d=dis"))); // adding /?__a=1&__d=dis at the end will return json data
     var data = json.decode(res.body);
     var graphql = data['graphql'];
     var user = graphql['user'];
@@ -42,17 +43,18 @@ class FlutterInsta {
     this._username = username;
   }
 
-  String? get followers => _followers;
+  String? get followers => _followers; // number of followers of the user
 
-  get following => _following;
+  get following => _following; // number of following on the user
 
-  get username => _username;
+  get username => _username; // Username of the user
 
-  get website => _website;
+  get website => _website; // Link in the bio
 
-  get bio => _bio;
+  get bio => _bio; // Instagram bio of the user
 
-  get imgurl => _imgurl;
+  get imgurl => _imgurl; // Profile picture URL
 
-  List<String>? get feedImagesUrl => _feedImagesUrl;
+  List<String>? get feedImagesUrl =>
+      _feedImagesUrl; // List of URLs of feed images
 }
