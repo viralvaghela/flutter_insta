@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http; // import http package for API calls
 
 class FlutterInsta {
   String url = "https://www.instagram.com/";
-  String? _followers, _following, _website, _bio, _imgurl, _username;
+  String? _followers, _following, _website, _bio, _imgurl, _username, _fullname;
   // List of images from user feed
   List<String>? _feedImagesUrl;
 
@@ -30,6 +30,7 @@ class FlutterInsta {
     var graphql = data['graphql'];
     var user = graphql['user'];
     var biography = user['biography'];
+    var full_name = user['full_name'];
     _bio = biography;
     var myfollowers = user['edge_followed_by'];
     var myfollowing = user['edge_follow'];
@@ -41,6 +42,7 @@ class FlutterInsta {
         .map<String>((image) => image['node']['display_url'] as String)
         .toList();
     this._username = username;
+    this._fullname = full_name;
   }
 
   String? get followers => _followers; // number of followers of the user
@@ -54,6 +56,8 @@ class FlutterInsta {
   get bio => _bio; // Instagram bio of the user
 
   get imgurl => _imgurl; // Profile picture URL
+
+  get fullname => _fullname; // Instagram bio of the user
 
   List<String>? get feedImagesUrl =>
       _feedImagesUrl; // List of URLs of feed images
