@@ -12,7 +12,7 @@ import 'package:flutter_insta/flutter_insta.dart';
 
 ```dart
 FlutterInsta flutterInsta = new FlutterInsta();
-await flutterInsta.getProfileData("coding_boy_); //instagram username
+await flutterInsta.getProfileData("coding_boy_"); //instagram username
 ```
 
 ##### Print Details
